@@ -1,5 +1,5 @@
 import React = require('react');
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Title = styled.h1`
 font size:1.5rem;
@@ -13,7 +13,7 @@ export const Wrapper = styled.section` padding:4rem;
  `;
 
 export const Button = styled.button`
- background:${(props) => (props.primary ? ' red' : 'blue')};
+ background:${(props: { primary: any }) => (props.primary ? ' red' : 'blue')};
  color: ${(props) => (props.primary ? 'white' : 'yellow')};
  font-size:1em;
  margin:1em;
@@ -64,7 +64,7 @@ export const LabelText = styled.span`
   ${(props) => {
     switch (props.$mode) {
       case 'dark':
-        return `
+        return css`
         background-color:black;
         color:white;
         ${Inputs}:checked + && {
